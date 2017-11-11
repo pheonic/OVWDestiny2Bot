@@ -1,3 +1,3 @@
 # OVWDestiny2Bot
-##Current commands
+## Current commands
 **milestones** - gets the status of our clans milestones
