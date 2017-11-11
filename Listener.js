@@ -7,28 +7,27 @@ const app = express();
 
 const getMilestones = require('./Milestones');
 const clanId = 2716862;
+const channelIds = ['368775188311048192', '378704715896193035'];
 
 bot.on("ready", () => {
   console.log("I am ready!");
 });
 
 bot.on("message", (message) => {
-const command = message.content;
-  switch (command) {
-  case "milestones" :
-    getMilestones(message, clanId);
-    break;
+  if (!channelIds.includes(message.channel.id)) {
+    return;
   }
+  const command = message.content;
+    switch (command) {
+    case "milestones" :
+      getMilestones(message, clanId);
+      break;
+    }
 })
 
 app.get("/", (request, response) => {
   console.log(Date.now() + " Ping Received");
   response.sendStatus(200);
 });
-
-app.listen(process.env.PORT);
-setInterval(() => {
-  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
-}, 280000);
 
 bot.login(process.env.TOKEN);
