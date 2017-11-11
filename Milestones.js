@@ -7,7 +7,6 @@ const milestoneMap = {"3789021730": {'name': 'Nightfall'},
                       "964120289":  {'name': 'Crucible'}};
 
 function getMilestones(message, clanId) {
-  console.log("Request recieved");
   const requestUrl = "https://www.bungie.net/Platform/Destiny2/Clan/" + clanId + "/WeeklyRewardState/";
   bungieApi.get(requestUrl, function (error, response, body) {
     // An array containing the four milestone in order, I assume the hashes are constant and in the order they are on the bungie.net website
